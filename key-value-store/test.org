@@ -1,0 +1,40 @@
+#+begin_src http :pretty
+PUT http://127.0.0.1:5000/api/v1/record/bar
+Content-Type: application/json
+
+{
+  "test": "foobar"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "message": "Record created successfully"
+: }
+
+#+begin_src http :pretty
+GET http://127.0.0.1:5000/api/v1/record/foobar
+#+end_src
+
+#+RESULTS:
+: {
+:   "test": "foobar"
+: }
+
+#+begin_src http :pretty
+GET http://127.0.0.1:5000/api/v1/record/baz
+#+end_src
+
+#+RESULTS:
+: {
+:   "message": "Record not found"
+: }
+
+#+begin_src http :pretty
+GET http://127.0.0.1:5000/api/v1/records
+#+end_src
+
+#+RESULTS:
+: {
+:   "count": 3
+: }
